@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project-1 - SoftwareM4</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Project-1</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -86,7 +86,7 @@
 
 <!-- App Section -->
 <div class="Section-three">
-    <div class="Container">
+    <div class="container">
         <div class="inner-wrap">
             <div class="inner-content">
                 <h3 class="inner-sub-title">App Download</h3>
@@ -99,7 +99,7 @@
     </div>
 </div>
 
-<!-- Contact Form -->
+<!-- Contact Form (New UI) -->
 <div class="Contact-form">
     <div class="Container">
         <div class="form-box">
@@ -121,6 +121,13 @@
     </div>
 </div>
 
+<!-- QR Section -->
+<div class="qr-section">
+    <h3 class="qr-title">Scan To Visit Website</h3>
+    <div id="qrcode" class="qr-box"></div>
+    <a id="downloadQR" class="qr-btn" download="qr-code.png">Download QR</a>
+</div>
+
 <!-- Social Fixed -->
 <div class="social-fixed">
     <a href="#" class="fb"><i class="fa-brands fa-facebook-f"></i></a>
@@ -128,40 +135,29 @@
     <a href="#" class="tiktok"><i class="fa-brands fa-tiktok"></i></a>
 </div>
 
-<!-- QR TABS SECTION (Đã Sửa ID, Không Trùng) -->
-<div class="qr-tabs-wrapper">
-    <div class="Container">
-        <div class="qr-tabs">
-            <button class="qr-tab active" data-tab="web">QR Website</button>
-            <button class="qr-tab" data-tab="image">QR Ảnh</button>
-        </div>
-
-        <!-- Tab QR Website -->
-        <div id="qrWeb" class="qr-tab-content active">
-            <h3 class="qr-title">Quét để truy cập Website</h3>
-            <div id="qrcode" class="qr-box"></div>
-            <a id="downloadQR" class="qr-btn" download="qr-website.png">Tải QR Website</a>
-        </div>
-
-        <!-- Tab QR Ảnh -->
-        <div id="qrImage" class="qr-tab-content">
-            <h3 class="qr-title">Tạo QR từ hình ảnh của bạn</h3>
-            <input type="file" id="imageInput" accept="image/*" class="upload-btn">
-
-            <div class="preview-box" style="display:none;">
-                <img id="previewImage" src="" alt="Preview ảnh">
-            </div>
-
-            <div id="qrcodeImage" class="qr-box"></div>
-            <a id="downloadQRImage" class="qr-btn" download="qr-image.png">Tải QR Ảnh</a>
-            <p id="qrLoadTime" class="loading-time"></p>
-        </div>
-    </div>
-</div>
-
-<!-- Scripts -->
+<!-- QR Script -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-<script src="thang.js"></script>
+
+<script>
+    // QR For Your Website
+    const myWebsiteURL = "https://project1-chi-smoky.vercel.app/";
+
+    const qr = new QRCode(document.getElementById("qrcode"), {
+        text: myWebsiteURL,
+        width: 200,
+        height: 200,
+        correctLevel: QRCode.CorrectLevel.H
+    });
+
+    setTimeout(() => {
+        const qrCanvas = document.querySelector("#qrcode canvas");
+        document.getElementById("downloadQR").href = qrCanvas.toDataURL("image/png");
+    }, 500);
+
+    function toggleMenu(){
+        document.getElementById("menuMobile").classList.toggle("active");
+    }
+</script>
 
 </body>
 </html>
