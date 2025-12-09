@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project-1</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="Header">
+    <div class="Container inner-wrap">
+        <div class="inner-logo">
+            <a href="#">
+                <img src="images/logo.png" alt="Logo">
+                <span>SoftwareM4</span>
+            </a>
+        </div>
+
+        <div class="inner-menu" id="menuMobile">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+
+        <div class="inner-social">
+            <ul>
+                <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
+                <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+            </ul>
+        </div>
+
+        <div class="inner-icon-mobi" onclick="toggleMenu()">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+    </div>
+</header>
+
+<!-- Banner -->
+<div class="Section">
+    <div class="Container">
+        <div class="Inner-wrap">
+            <h2 class="Inner-sub-title">Developer Company</h2>
+            <h1 class="Inner-title">Software App</h1>
+            <p class="Inner-desc">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Accumsan porttitor egestas fermentum nulla.
+            </p>
+            <div class="Inner-buttons">
+                <a href="#" class="buttons buttons-two">Our Services</a>
+                <a href="#" class="buttons buttons-two-outliner">Learn More</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Core Feature -->
+<div class="Section-two">
+    <div class="Container">
+        <div class="inner-wrap">
+            <div class="inner-image">
+                <img src="images/features1.jpg" alt="">
+            </div>
+            <div class="inner-content">
+                <h3 class="inner-sub-title">Core Feature</h3>
+                <h2 class="inner-title">Best Business Software Solution</h2>
+
+                <div class="inner-list">
+                    <div class="inner-item"><i class="fa-solid fa-palette"></i><span>Design</span></div>
+                    <div class="inner-item"><i class="fa-solid fa-laptop-code"></i><span>Usage</span></div>
+                    <div class="inner-item"><i class="fa-solid fa-users"></i><span>Testing</span></div>
+                </div>
+
+                <p class="Inner-desc">Lorem ipsum dolor sit amet...</p>
+                <a href="#" class="buttons buttons-two">Read More</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- App Section -->
+<div class="Section-three">
+    <div class="container">
+        <div class="inner-wrap">
+            <div class="inner-content">
+                <h3 class="inner-sub-title">App Download</h3>
+                <h2 class="inner-title">You can control direct from your mobile.</h2>
+            </div>
+            <div class="inner-image">
+                <img src="images/features2.jpg" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Contact Form (New UI) -->
+<div class="Contact-form">
+    <div class="Container">
+        <div class="form-box">
+            <h3 class="form-sub-title">Estimate For Projects</h3>
+            <h2 class="form-title">Share Work Details</h2>
+
+            <form action="">
+                <div class="form-row">
+                    <input type="text" placeholder="Full Name" required>
+                    <input type="email" placeholder="Email Address" required>
+                </div>
+
+                <input type="text" class="form-full" placeholder="Subject">
+                <textarea class="form-full" rows="5" placeholder="Work Details"></textarea>
+
+                <button class="btn-submit">Send Message</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- QR Section -->
+<div class="qr-section">
+    <h3 class="qr-title">Scan To Visit Website</h3>
+    <div id="qrcode" class="qr-box"></div>
+    <a id="downloadQR" class="qr-btn" download="qr-code.png">Download QR</a>
+</div>
+
+<!-- Social Fixed -->
+<div class="social-fixed">
+    <a href="#" class="fb"><i class="fa-brands fa-facebook-f"></i></a>
+    <a href="#" class="mess"><i class="fa-brands fa-facebook-messenger"></i></a>
+    <a href="#" class="tiktok"><i class="fa-brands fa-tiktok"></i></a>
+</div>
+
+<!-- QR Script -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+<script>
+    // QR For Your Website
+    const myWebsiteURL = "https://project1-chi-smoky.vercel.app/";
+
+    const qr = new QRCode(document.getElementById("qrcode"), {
+        text: myWebsiteURL,
+        width: 200,
+        height: 200,
+        correctLevel: QRCode.CorrectLevel.H
+    });
+
+    setTimeout(() => {
+        const qrCanvas = document.querySelector("#qrcode canvas");
+        document.getElementById("downloadQR").href = qrCanvas.toDataURL("image/png");
+    }, 500);
+
+    function toggleMenu(){
+        document.getElementById("menuMobile").classList.toggle("active");
+    }
+</script>
+
+</body>
+</html>
